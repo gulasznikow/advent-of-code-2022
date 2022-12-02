@@ -1,5 +1,7 @@
 <?php
 
+namespace Task\RockPaperScissors\PartOne;
+
 enum Symbol: int
 {
     case ROCK = 1;

@@ -1,14 +1,11 @@
 <?php
 
-$data = str_split(file(__DIR__.'/input.txt')[0]);
+$data = file(__DIR__.'/input.txt')[0];
 
-foreach ($data as $entryKey => $entry)
+foreach (str_split($data) as $entryKey => $entry)
 {
-    $toCheck = [];
-    for($i=$entryKey; $i <= min(count($data), $entryKey+13); $i++)
-    {
-        $toCheck[] = $data[$i];
-    }
+    $toCheck = str_split(substr($data,$entryKey, 14));
+
     $unique = array_unique($toCheck);
 
     if (count($unique) == count($toCheck)) {

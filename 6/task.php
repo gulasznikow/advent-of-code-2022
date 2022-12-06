@@ -1,16 +1,9 @@
 <?php
 
-$data = str_split(file(__DIR__.'/input.txt')[0]);
-foreach ($data as $entryKey => $entry)
+$data = file(__DIR__.'/input.txt')[0];
+foreach (str_split($data) as $entryKey => $entry)
 {
-    $unique = array_unique(
-        [
-            $data[$entryKey],
-            $data[$entryKey+1],
-            $data[$entryKey+2],
-            $data[$entryKey+3]
-        ]
-    );
+    $unique = array_unique(str_split(substr($data,$entryKey, 4)));
 
     if (count($unique) == 4) {
         print_r(($entryKey+4).PHP_EOL);

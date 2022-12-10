@@ -36,7 +36,7 @@ $winMatrix = [
         Symbol::PAPER->name => 9,
     ]
 ];
-$data = file(__DIR__.'/input.txt');
+$data = file(__DIR__ . '/input.txt');
 $score = 0;
 
 foreach ($data as $entry)

@@ -1,0 +1,19 @@
+{
+    "name": "maciejsajdok/aoc2022",
+    "description": "AoC2022",
+    "type": "project",
+    "require": {
+        "illuminate/support": "^9.43"
+    },
+    "autoload": {
+        "psr-4": {
+            "Maciejsajdok\\Aoc2022\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Maciej Sajdok",
+            "email": "maciej.sajdok@tsh.io"
+        }
+    ]
+}

@@ -5,7 +5,7 @@ function overlap($minBoundary1, $maxBoundary1, $minBoundary2, $maxBoundary2): bo
         || (($minBoundary2 <= $maxBoundary1) && ($maxBoundary2>=$minBoundary1));
 }
 
-$data = file(__DIR__.'/input.txt');
+$data = file(__DIR__ . '/input.txt');
 
 $overlappedPairs = 0;
 

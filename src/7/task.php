@@ -1,6 +1,6 @@
 <?php
 
-$data = file(__DIR__.'/input.txt');
+$data = file(__DIR__ . '/input.txt');
 
 $index = 0;
 

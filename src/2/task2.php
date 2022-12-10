@@ -61,7 +61,7 @@ $resultMatrix = [
         Symbol::SCISSORS->name => Symbol::ROCK,
     ],
 ];
-$data = file(__DIR__.'/input.txt');
+$data = file(__DIR__ . '/input.txt');
 $score = 0;
 
 foreach ($data as $entry)

@@ -37,6 +37,8 @@ $q->enqueue([0,$start]);
 $v[$start[0].'-'.$start[1]] = 1;
 
 $step = 0;
+
+//We go trough all elements until queue is empty or we found (more likely) target coords, basically botched BFS algorithm
 while($q->count()>0)
 {
     //Take first queue element and decompose it to weight and coords

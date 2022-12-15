@@ -48,9 +48,11 @@ foreach ($data as $row)
     }
 }
 $bottom = (max(array_keys($cave)));
+//print_r($cave);
+
 
 //we have infinite loop that moves sand around
-while(true)
+while(!isset($cave[0][500]))
 {
     $startX = 500;
     $startY = 0;
@@ -60,8 +62,7 @@ while(true)
         if ($startY>$bottom)
         {
             //if we reached abyss we stop both loops
-            print_r($sandCount);
-            die();
+            break;
         }
 
         if (!isset($cave[$startY+1][$startX]))
@@ -86,11 +87,11 @@ while(true)
             $startX +=1;
             continue;
         }
-
-        //if we cant move anywhere we break this loop and add sand to specifiec coordinates
-        $cave[$startY][$startX] = 'o';
-        $sandCount++;
         break;
     }
+    $cave[$startY][$startX] = 'o';
+    $sandCount++;
 
 }
+
+print_r($sandCount);

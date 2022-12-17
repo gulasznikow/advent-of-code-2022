@@ -60,14 +60,11 @@ class Monkey
 
     function processItems(array &$monkeys): void
     {
-        $worryLevel = 0;
         $operation = str_replace('new', '$newWorryLevel', str_replace('old', '$item', $this->operation,)).';';
 
         foreach ($this->items as $item)
         {
             $this->activity++;
-//            print_r('INSPECT '.$item.PHP_EOL);
-//            \Brick\Math\BigInteger::of($item);
             $newWorryLevel = 0;
             eval($operation);
 

@@ -33,12 +33,14 @@ foreach ($data as $y => $row) {
 
 //Add starting point to queue
 $q = new SplQueue();
+
+//Put end coordinates for part 2
 $q->enqueue([0,$start]);
 $v[$start[0].'-'.$start[1]] = 1;
 
 $step = 0;
 
-//We go trough all elements until queue is empty or we found (more likely) target coords, basically botched BFS algorithm
+//We go through all elements until queue is empty, or we found (more likely) target coords, basically botched BFS algorithm
 while($q->count()>0)
 {
     //Take first queue element and decompose it to weight and coords
@@ -64,6 +66,7 @@ while($q->count()>0)
         if ((ord($map[$newX][$newY]) - ord($map[$x][$y])) > 1 ) continue;
 
         //Check if the visited coords are the destination coords and end it
+        //Compare new coords character with 'a' for part 2 to find closest a
         if ($newX === $end[0] && $newY === $end[1])
         {
             print_r($i+1);

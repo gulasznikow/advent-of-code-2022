@@ -1,5 +1,6 @@
 <?php
-
+$startMem = memory_get_usage()/1048576.2;
+$start = microtime(true);
 $data = file(__DIR__ . '/input.txt');
 
 function pr($text)
@@ -149,7 +150,6 @@ function generateKey(array $rock)
     return md5($rock['type'].'-'.$rock['moveIndexes']);
 }
 
-$start = microtime(true);
 //while ($rocks < 1000000000000)
 while ($rocks < 10000)
 {
@@ -196,22 +196,23 @@ while ($rocks < 10000)
         $rockCache[generateKey($rockMove)]['iter'] ++;
         $rockCache[generateKey($rockMove)][] = $rockMove;
         $found = $rockCache[generateKey($rockMove)];
-        pr($found);
         if ($found['iter']>2) {
             $deltaY = $top - $found[1]['height'];
             $deltaIndex = $rocks - $found[1]['index'];
 //            pr($found);
-            pr('Current height = '. $top);
-            pr('Current rocks = '.$rocks);
-            pr('Height delta = '.$deltaY);
-            pr('Rock delta = '.$deltaIndex);
             $rocksToFill = $target - $rocks;
-            pr('Rocks to get = '. $rocksToFill);
             if ($rocksToFill%$deltaIndex === 0)
             {
+                pr('Current height = '. $top);
+                pr('Current rocks = '.$rocks);
+                pr('Height delta = '.$deltaY);
+                pr('Rock delta = '.$deltaIndex);
+                pr('Rocks to get = '. $rocksToFill);
                 $amount = $rocksToFill/$deltaIndex;
-                pr($rocksToFill/$deltaIndex);
+                pr('Height multiplier = '. $amount);
                 pr('RESULT = '.($top + ($amount*$deltaY)));
+                pr('Time = '. microtime(true) - $start);
+                pr('Memory = '.((memory_get_usage()/1048576.2) - $startMem).'MB');
                 die();
             }
         }
@@ -221,7 +222,6 @@ while ($rocks < 10000)
 
     }
 }
-pr(microtime(true) - $start);
 pr(maxHeight());
 
 pr($rockCache);
